@@ -1,4 +1,8 @@
 #Collatz sequence
+#
+#
+#Input validation using try and except statements
+
 
 
 def collatz(number):
@@ -16,16 +20,19 @@ def collatz(number):
 while True:
     print('Enter a positive integer:')
 
-    #error handling
+#error handling
     try:
         num = int(input())
             
         while(num is not 1):
             num=collatz(num)
-    except:
-        print('Only integer values accepted')
-
-    #option to continue or terminate program    
+    except ValueError:
+            num=1
+            print('Only integer values accepted')
+    except KeyboardInterrupt:
+            num=1
+            print('Keyboard Interrupt')
+#option to continue or terminate program    
     if num is 1:
         print('To terminate hit enter, to continue press any other key')
         key=input()
